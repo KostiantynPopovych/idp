@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Card } from 'antd';
-import { EditOutlined, DeleteOutlined, StarOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 interface Props {
   name: string;
@@ -9,12 +9,11 @@ interface Props {
   price: number;
   onEditClick: () => void;
   onDeleteClick: () => void;
-  onSaveClick: () => void;
 }
 
 const cardStyles = { width: 240 };
 
-const ItemCard = ({ name, description, imageUrl, onDeleteClick, onEditClick, onSaveClick }: Props) => (
+const ItemCard = ({ name, description, imageUrl, onDeleteClick, onEditClick }: Props) => (
   <Card
     style={cardStyles}
     cover={
@@ -29,9 +28,6 @@ const ItemCard = ({ name, description, imageUrl, onDeleteClick, onEditClick, onS
       </button>,
       <button key="Edit btn" onClick={onEditClick}>
         <EditOutlined />
-      </button>,
-      <button key="Save btn" onClick={onSaveClick}>
-        <StarOutlined />
       </button>
     ]}
   >

@@ -1,7 +1,6 @@
 const CLICK_ACTION = {
   EDIT: 'EDIT',
-  DELETE: 'DELETE',
-  SAVE: 'SAVE'
+  DELETE: 'DELETE'
 };
 
 export { CLICK_ACTION };

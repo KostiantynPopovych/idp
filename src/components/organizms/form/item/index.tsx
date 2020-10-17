@@ -5,7 +5,7 @@ import { Space, Input, Row, Typography } from 'antd';
 import { FIELDS } from "./config";
 import sm from './styles.module.scss';
 
-interface InitialValues {
+export interface InitialValues {
   name?: string;
   description?: string;
   image?: string;
