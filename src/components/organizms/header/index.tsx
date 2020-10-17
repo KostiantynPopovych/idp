@@ -4,6 +4,7 @@ import ItemForm from "components/organizms/form/item";
 import Spinner from "components/atoms/spinner";
 
 import useLogic from "./useLogic";
+import sm from './styles.module.scss';
 
 const Header = () => {
   const { showModal, handleToggleModal, handleSubmitCreate, handleSubmitForm, handleSetRef, addItemPending } = useLogic();
@@ -19,14 +20,16 @@ const Header = () => {
       >
         <ItemForm onSubmit={handleSubmitCreate} onSetRef={handleSetRef} />
       </Modal>
-      <Row align="middle">
-        <Col span={2} push={4}>
-          <Typography.Title level={3}>IDP</Typography.Title>
-        </Col>
-        <Col span={2} push={16}>
-         <Button onClick={handleToggleModal} type="primary">Add item</Button>
-        </Col>
-      </Row>
+      <div className={sm.Wrap}>
+        <Row align="middle">
+          <Col span={2} push={4}>
+            <Typography.Title level={3}>IDP</Typography.Title>
+          </Col>
+          <Col span={2} push={16}>
+           <Button onClick={handleToggleModal}>Add item</Button>
+          </Col>
+        </Row>
+      </div>
     </>
   )
 };
