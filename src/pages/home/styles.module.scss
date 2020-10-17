@@ -1,0 +1,10 @@
+.Container {
+  display: flex;
+  flex-wrap: wrap;
+
+  padding: 2rem;
+
+  &_Item {
+    margin: 0 2rem;
+  }
+}
