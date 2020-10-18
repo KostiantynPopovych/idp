@@ -35,9 +35,9 @@ jobs:
     - name: Define variables
       run: echo "Defining variables..."
       env:
-        REACT_APP_BASE_URL_MANAGEMENT: secrets.REACT_APP_BASE_URL_MANAGEMENT
-        REACT_APP_MANAGEMENT_TOKEN: secrets.REACT_APP_MANAGEMENT_TOKEN
-        REACT_APP_BASE_PATH: secrets.REACT_APP_BASE_PATH
+        REACT_APP_BASE_URL_MANAGEMENT: ${{ secrets.REACT_APP_BASE_URL_MANAGEMENT }}
+        REACT_APP_MANAGEMENT_TOKEN: ${{ secrets.REACT_APP_MANAGEMENT_TOKEN }}
+        REACT_APP_BASE_PATH: ${{ secrets.REACT_APP_BASE_PATH }}
     - name: Build
       run: npm run build
     - name: Deploy
