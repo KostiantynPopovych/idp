@@ -3,7 +3,7 @@ import { ApolloProvider } from '@apollo/client';
 import client from './apollo';
 import HomePage from 'pages/home';
 import WithHeader from "components/templates/withHeader";
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 const App = () => (
   <ApolloProvider client={client}>
