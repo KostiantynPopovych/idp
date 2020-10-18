@@ -32,8 +32,8 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
       run: npm install
-    - name: Define variables
-      run: echo "Defining variables..."
+    - name: Test
+      run: npm run test
     - name: Build
       run: npm run build
       env:
