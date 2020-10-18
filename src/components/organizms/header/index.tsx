@@ -7,18 +7,29 @@ import useLogic from "./useLogic";
 import sm from './styles.module.scss';
 
 const Header = () => {
-  const { showModal, handleToggleModal, handleSubmitCreate, handleSubmitForm, handleSetRef, addItemPending } = useLogic();
+  const {
+    showModal,
+    handleToggleModal,
+    handleSubmitCreate,
+    handleSubmitForm,
+    handleSetRef,
+    addItemPending,
+    queryParams,
+    queryExist,
+    handleCloseModal
+  } = useLogic();
 
   return (
     <>
       {addItemPending && <Spinner />}
       <Modal
+        destroyOnClose
         title="Add item"
-        visible={showModal}
+        visible={showModal || queryExist}
         onOk={handleSubmitForm}
-        onCancel={handleToggleModal}
+        onCancel={handleCloseModal}
       >
-        <ItemForm onSubmit={handleSubmitCreate} onSetRef={handleSetRef} />
+        <ItemForm initialValues={queryParams} onSubmit={handleSubmitCreate} onSetRef={handleSetRef} />
       </Modal>
       <div className={sm.Wrap}>
         <Row align="middle">

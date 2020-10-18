@@ -4,6 +4,7 @@ import { GET_ITEMS, DELETE_ITEM, UPDATE_ITEM, GetItemsResponse, updateItemsList 
 import { CLICK_ACTION } from "constants/global";
 import useFormRef from "hooks/useFormRef";
 import { normalizeFromItem, normalizeToItem } from 'utils/transformItems';
+import sanitizeObjectValues from "utils/sanitizeObjectValues";
 
 const useLogic = () => {
   const { data, loading: getItemsPending } = useQuery<GetItemsResponse>(GET_ITEMS);
@@ -48,10 +49,10 @@ const useLogic = () => {
     const { id, version } = selectedItem as NormalizedItem;
     // @ts-ignore
     client.link.headers.set('X-Contentful-Version', version);
-    updateItem({ variables: { updatedItem: normalizeToItem(values), config: { id, version } } });
+    updateItem({ variables: { updatedItem: normalizeToItem(sanitizeObjectValues(values)), config: { id, version } } });
     handleClearSelectedItem();
   }, [selectedItem, client, updateItem, handleClearSelectedItem]);
-  
+
   return useMemo(() => ({
     handleActionClick,
     anyInPending,

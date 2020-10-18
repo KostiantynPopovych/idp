@@ -38,6 +38,7 @@ const Home = () => {
   return <div className={sm.Container}>
     <Modal
       title="Update item"
+      destroyOnClose
       visible={!!selectedItem}
       onOk={handleSubmitForm}
       onCancel={handleClearSelectedItem}
