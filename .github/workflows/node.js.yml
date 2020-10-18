@@ -32,6 +32,11 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
       run: npm install
+    - name: Define variables
+      env:
+        REACT_APP_BASE_URL_MANAGEMENT: secrets.REACT_APP_BASE_URL_MANAGEMENT
+        REACT_APP_MANAGEMENT_TOKEN: secrets.REACT_APP_MANAGEMENT_TOKEN
+        REACT_APP_BASE_PATH: secrets.REACT_APP_BASE_PATH
     - name: Build
       run: npm run build
     - name: Deploy
@@ -45,6 +50,3 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
-        REACT_APP_BASE_URL_MANAGEMENT: secrets.REACT_APP_BASE_URL_MANAGEMENT
-        REACT_APP_MANAGEMENT_TOKEN: secrets.REACT_APP_MANAGEMENT_TOKEN
-        REACT_APP_BASE_PATH: secrets.REACT_APP_BASE_PATH
