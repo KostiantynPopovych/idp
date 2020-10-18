@@ -23,7 +23,7 @@ const useLogic = () => {
   
   const handleCloseModal = useCallback(() => {
     if (queryExist) {
-      replace('/home');
+      replace('/idp/home');
     } else {
       handleToggleModal();
     }

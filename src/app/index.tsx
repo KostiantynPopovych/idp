@@ -9,8 +9,8 @@ const App = () => (
   <ApolloProvider client={client}>
     <Router>
       <Switch>
-        <Route path="/home" exact component={() => <WithHeader><HomePage /></WithHeader>} />
-        <Redirect to="/home" />
+        <Route path="/idp/home" exact component={() => <WithHeader><HomePage /></WithHeader>} />
+        <Redirect to="/idp/home" />
       </Switch>
     </Router>
   </ApolloProvider>
