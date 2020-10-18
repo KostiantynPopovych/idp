@@ -33,6 +33,7 @@ jobs:
     - name: Install dependencies
       run: npm install
     - name: Define variables
+      run: echo "Defining variables..."
       env:
         REACT_APP_BASE_URL_MANAGEMENT: secrets.REACT_APP_BASE_URL_MANAGEMENT
         REACT_APP_MANAGEMENT_TOKEN: secrets.REACT_APP_MANAGEMENT_TOKEN
