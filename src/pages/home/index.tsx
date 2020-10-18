@@ -23,7 +23,7 @@ const Home = () => {
   const renderItem = useCallback((item) => {
     const { id, description, name, image, price } = item;
 
-    return <div key={id} className={sm.Container_Item}>
+    return <div id="item-wrap" key={id} className={sm.Container_Item}>
         <ItemCard
           onDeleteClick={handleActionClick(CLICK_ACTION.DELETE, item)}
           onEditClick={handleActionClick(CLICK_ACTION.EDIT, item)}

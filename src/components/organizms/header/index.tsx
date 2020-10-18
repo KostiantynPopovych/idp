@@ -37,7 +37,7 @@ const Header = () => {
             <Typography.Title level={3}>IDP</Typography.Title>
           </Col>
           <Col span={2} push={16}>
-           <Button onClick={handleToggleModal}>Add item</Button>
+           <Button id="add-item-btn" onClick={handleToggleModal}>Add item</Button>
           </Col>
         </Row>
       </div>

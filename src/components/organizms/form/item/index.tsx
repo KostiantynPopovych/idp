@@ -39,7 +39,7 @@ const Item = ({ onSetRef, onSubmit, initialValues }: Props) => {
   ), [control]);
   
   return (
-    <form onSubmit={handleSubmit(onSubmit)} ref={onSetRef}>
+    <form onSubmit={handleSubmit(onSubmit)} ref={onSetRef} id="add-edit-item-form">
       <Space direction="vertical" size="large" style={spaceStyles}>
         { FIELDS.map(handleRenderField(errors)) }
       </Space>

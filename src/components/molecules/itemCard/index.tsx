@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, {memo, useMemo} from 'react';
 import { Card } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
@@ -18,18 +18,19 @@ const ItemCard = ({ name, description, imageUrl, onDeleteClick, onEditClick }: P
     style={cardStyles}
     cover={
       <img
+        id="card-image"
         alt={name}
         src={imageUrl}
       />
     }
-    actions={[
-      <button key="Delete btn" onClick={onDeleteClick}>
+    actions={useMemo(() => ([
+      <button id="delete-btn" key="Delete btn" onClick={onDeleteClick}>
         <DeleteOutlined />
       </button>,
-      <button key="Edit btn" onClick={onEditClick}>
+      <button id="edit-btn" key="Edit btn" onClick={onEditClick}>
         <EditOutlined />
       </button>
-    ]}
+    ]), [onDeleteClick, onEditClick])}
   >
     <Card.Meta
       title={name}
