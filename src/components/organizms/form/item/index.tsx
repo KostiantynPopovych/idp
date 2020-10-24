@@ -5,15 +5,17 @@ import { Space, Input, Row, Typography } from 'antd';
 import { FIELDS } from "./config";
 import sm from './styles.module.scss';
 
-export interface InitialValues {
-  name?: string;
-  description?: string;
-  image?: string;
+interface Fields {
+  name: string;
+  description: string;
+  image: string;
 }
+
+export interface InitialValues extends Partial<Fields> {}
 
 interface Props {
   onSetRef: (ref: HTMLFormElement) => void;
-  onSubmit: (args: any) => void;
+  onSubmit: (args: Fields) => void;
   initialValues?: InitialValues;
 }
 
@@ -22,7 +24,7 @@ const spaceStyles = {
 };
 
 const Item = ({ onSetRef, onSubmit, initialValues }: Props) => {
-  const { handleSubmit, control, errors } = useForm({ defaultValues: initialValues });
+  const { handleSubmit, control, errors } = useForm<Fields>({ defaultValues: initialValues });
 
   const handleRenderField = useCallback((errors) => ({ name, label, validation }: { name: string; label: string; validation: { required: boolean } } ) => (
     <Row key={name}>
@@ -30,7 +32,7 @@ const Item = ({ onSetRef, onSubmit, initialValues }: Props) => {
         <Typography.Title level={5}>{label}</Typography.Title>
       </label>
       <Controller
-        name={name}
+        name={name as keyof Fields}
         as={<Input placeholder={label} className={errors[name] ? sm.Error : undefined} />}
         control={control}
         rules={validation}
