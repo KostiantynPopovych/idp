@@ -11,10 +11,6 @@ const pageSettings = {
   userAgent: ''
 };
 
-const browserSettings = {
-  headless: false
-};
-
 const item = {
   name: faker.name.title(),
   description: faker.lorem.sentences(),
@@ -23,7 +19,7 @@ const item = {
 
 describe('Items', () => {
   test('Add item', async () => {
-    let browser = await puppeteer.launch(browserSettings);
+    let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await page.emulate(pageSettings);
     await page.goto('http://localhost:3000/');
@@ -46,7 +42,7 @@ describe('Items', () => {
     await browser.close();
   }, 16000);
   test('Edit item', async () => {
-    let browser = await puppeteer.launch(browserSettings);
+    let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await page.emulate(pageSettings);
     await page.goto('http://localhost:3000/');
@@ -67,7 +63,7 @@ describe('Items', () => {
     await browser.close();
   }, 16000);
   test('Delete item', async () => {
-    let browser = await puppeteer.launch(browserSettings);
+    let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await page.emulate(pageSettings);
     await page.goto('http://localhost:3000/');
