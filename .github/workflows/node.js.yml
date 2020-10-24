@@ -32,8 +32,6 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
       run: npm install
-    - name: Tests
-      run: npm test
     - name: Build
       run: npm run build
       env:
@@ -51,3 +49,5 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
+    - name: Tests
+      run: npm test

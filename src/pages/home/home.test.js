@@ -6,7 +6,7 @@ const URL = 'https://api.contentful.com/spaces/vbcxif4jja7r/environments/master/
 const pageSettings = {
   viewport: {
     width: 500,
-    height: 2400
+    height: 400
   },
   userAgent: ''
 };
@@ -22,7 +22,7 @@ describe('Items', () => {
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await page.emulate(pageSettings);
-    await page.goto('http://localhost:3000/');
+    await page.goto('https://malachitetrip.github.io/idp/#/home');
     await page.waitForResponse(URL);
     await page.waitForTimeout(1000);
     const initialItemsCount = (await page.$$('#item-wrap')).length;
@@ -45,7 +45,7 @@ describe('Items', () => {
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await page.emulate(pageSettings);
-    await page.goto('http://localhost:3000/');
+    await page.goto('https://malachitetrip.github.io/idp/#/home');
     await page.waitForResponse(URL);
     await page.waitForTimeout(1000);
     const item = await page.$('#item-wrap');
@@ -66,7 +66,7 @@ describe('Items', () => {
     let browser = await puppeteer.launch();
     let page = await browser.newPage();
     await page.emulate(pageSettings);
-    await page.goto('http://localhost:3000/');
+    await page.goto('https://malachitetrip.github.io/idp/#/home');
     await page.waitForResponse(URL);
     await page.waitForTimeout(1000);
     const initialItemsCount = (await page.$$('#item-wrap')).length;
